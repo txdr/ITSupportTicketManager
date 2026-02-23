@@ -50,7 +50,7 @@ namespace ITSupportTicketManager
                 var v = (value ?? "").Trim();
                 if (Array.IndexOf(AllowedStatuses, v) < 0)
                     throw new ArgumentException($"Status must be one of: {string.Join(", ", AllowedStatuses)}");
-                _priority = v;
+                _status = v;
             }
         }
 

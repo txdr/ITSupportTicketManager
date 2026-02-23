@@ -89,9 +89,9 @@ namespace ITSupportTicketManager
                     if (!DateTime.TryParse(created, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out var when))
                         throw new InvalidDataException("Invalid DateCreated");
 
-                    var t = new Ticket(id, description, priority, created);
+                    var t = new Ticket(id, description, priority, status);
                     typeof(Ticket).GetProperty(nameof(Ticket.DateCreated))!
-                        .SetValue(t, created);
+                        .SetValue(t, when);
                     AddTicket(t);
                     loaded++;
                 } catch (Exception ex)
